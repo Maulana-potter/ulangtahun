@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Celebration!</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Birthday Content - Full Website -->
+      <div id="birthdayContent">
+        <header>
+          <h1>Selamat Ulang Tahun!</h1>
+        </header>
+
+        <div class="cake-container">
+          <div class="cake">
+            <div class="flame"></div>
+            <div class="candle"></div>
+            <div class="cake-top"></div>
+            <div class="cake-middle"></div>
+            <div class="cake-base"></div>
+          </div>
+        </div>
+
+        <div class="message-card">
+          <p class="message-text">
+            Hari spesial untuk orang yang spesial. Di ulang tahunmu yang indah
+            ini, aku ingin kamu tahu betapa berharganya kehadiranmu dalam
+            hidupku. Semoga tahun barumu dipenuhi dengan kebahagiaan,
+            kesuksesan, dan semua yang kamu impikan.
+          </p>
+          <p class="message-text">
+            Perjalanan kita bersama adalah hal terindah yang bisa kumiliki, dan
+            aku berharap bisa merayakan banyak ulang tahun bersamamu lagi di
+            tahun-tahun mendatang.
+          </p>
+          <p class="message-signature">Dengan cinta yang tulus,</p>
+        </div>
+
+        <div class="wish-display" id="wishDisplay"></div>
+
+        <button class="music-button" id="birthdayBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+          </svg>
+          Play Birthday Song
+        </button>
+
+        <button class="gallery-toggle" id="galleryBtn">
+          Lihat Galeri Kenangan
+        </button>
+
+        <div class="gallery" id="gallery">
+          <div class="photo-card">
+            <img class="photo" src="./img/1.jpg" alt="Kenangan Kita 1" />
+            <div class="photo-caption">Sarune</div>
+          </div>
+          <div class="photo-card">
+            <img class="photo" src="./img/7.jpg" alt="Kenangan Kita 2" />
+            <div class="photo-caption">Nonton Di CGV</div>
+          </div>
+          <div class="photo-card">
+            <img class="photo" src="./img/3.jpg" alt="Kenangan Kita 3" />
+            <div class="photo-caption">Foto Box</div>
+          </div>
+          <div class="photo-card">
+            <img class="photo" src="./img/4.jpg" alt="Kenangan Kita 4" />
+            <div class="photo-caption">Foto di Sun</div>
+          </div>
+          <div class="photo-card">
+            <img class="photo" src="./img/5.jpg" alt="Kenangan Kita 5" />
+            <div class="photo-caption">Foto Studio Pertama</div>
+          </div>
+          <div class="photo-card">
+            <img class="photo" src="./img/8.jpg" alt="Kenangan Kita 6" />
+            <div class="photo-caption">Nonton</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="particles-container" id="particles"></div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

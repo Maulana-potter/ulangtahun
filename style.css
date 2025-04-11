@@ -1,0 +1,367 @@
+:root {
+  --primary: #ff3d7f;
+  --secondary: #3d5afe;
+  --dark: #272343;
+  --light: #ffffff;
+  --bg: #fafafa;
+  --accent: #00cfdd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, system-ui,
+    sans-serif;
+  background-color: var(--bg);
+  color: var(--dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+/* Birthday content - full website */
+#birthdayContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+header {
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  animation: fadeIn 1s forwards 0.5s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.message-card {
+  background: var(--light);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
+  margin: 2rem 0;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 1s forwards 1s;
+}
+
+.message-text {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.message-signature {
+  font-style: italic;
+  text-align: right;
+  opacity: 0.8;
+}
+
+.music-button {
+  background: linear-gradient(45deg, var(--primary), #ff6b9d);
+  color: white;
+  border: none;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(255, 61, 127, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 1rem 0;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 1s forwards 1.2s;
+}
+
+.music-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 30px rgba(255, 61, 127, 0.4);
+}
+
+.music-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.gallery-toggle {
+  background: transparent;
+  color: var(--secondary);
+  border: 2px solid var(--secondary);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 1.5rem 0;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 1s forwards 1.4s;
+}
+
+.gallery-toggle:hover {
+  background: var(--secondary);
+  color: white;
+}
+
+.gallery {
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.photo-card {
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  transform: scale(1);
+  position: relative;
+}
+
+.photo-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.photo-card:hover::before {
+  opacity: 1;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 0.9rem;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-card:hover .photo-caption {
+  opacity: 1;
+}
+
+.wish-display {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin: 1rem 0;
+  text-align: center;
+  opacity: 0;
+  animation: slideUp 1s forwards 1.6s;
+}
+
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  background-color: var(--primary);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: float 20s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+.confetti {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+  }
+}
+
+.cake-container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: 20px 0;
+  opacity: 0;
+  animation: slideUp 1s forwards 0.6s;
+}
+
+.cake {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.cake-base {
+  position: absolute;
+  bottom: 0;
+  width: 180px;
+  height: 60px;
+  background: linear-gradient(180deg, #ff85ad, #ff3d7f);
+  border-radius: 12px 12px 6px 6px;
+  left: 10px;
+}
+
+.cake-middle {
+  position: absolute;
+  bottom: 60px;
+  width: 140px;
+  height: 60px;
+  background: linear-gradient(180deg, #ffadd8, #ff85ad);
+  border-radius: 8px 8px 4px 4px;
+  left: 30px;
+}
+
+.cake-top {
+  position: absolute;
+  bottom: 120px;
+  width: 100px;
+  height: 40px;
+  background: linear-gradient(180deg, #ffd6eb, #ffadd8);
+  border-radius: 6px 6px 2px 2px;
+  left: 50px;
+}
+
+.candle {
+  position: absolute;
+  bottom: 160px;
+  width: 8px;
+  height: 30px;
+  background: linear-gradient(180deg, #ffffff, #efefef);
+  border-radius: 4px;
+  left: 96px;
+}
+
+.flame {
+  position: absolute;
+  bottom: 190px;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(#ffcc00, #ff9500);
+  border-radius: 50%;
+  left: 90px;
+  filter: blur(2px);
+  animation: flicker 1s infinite alternate;
+  box-shadow: 0 0 15px 5px rgba(255, 149, 0, 0.5);
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
